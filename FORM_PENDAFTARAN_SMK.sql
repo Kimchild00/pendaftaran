@@ -2,8 +2,8 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 10, 2020 at 09:55 AM
+-- Host: localhost
+-- Generation Time: Mar 10, 2020 at 10:19 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.15
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `form_pendaftaran_smk`
+-- Database: `FORM_PENDAFTARAN_SMK`
 --
 
 -- --------------------------------------------------------
@@ -55,6 +55,29 @@ INSERT INTO `calon_peserta_didik` (`No_KK`, `Nama`, `NISN`, `Tempat_Lahir`, `Tan
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `LAMPIRAN`
+--
+
+CREATE TABLE `LAMPIRAN` (
+  `Kartu_keluarga` bigint(20) NOT NULL,
+  `Pos_photo_3x4` varchar(20) NOT NULL,
+  `SKL` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `LAMPIRAN`
+--
+
+INSERT INTO `LAMPIRAN` (`Kartu_keluarga`, `Pos_photo_3x4`, `SKL`) VALUES
+(9485738, 'Sudah', 'Sudah'),
+(94857382, 'Sudah', '-'),
+(94857383, '-', '-'),
+(94857384, '-', 'Sudah'),
+(94857385, 'Sudah', 'Sudah');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orang_tua`
 --
 
@@ -81,6 +104,29 @@ INSERT INTO `orang_tua` (`no_kk`, `nama_ayah`, `nama_ibu`, `tahun_lahir_ayah`, `
 (331205171165, 'Ginanjar', 'Jubaedah', '1969-11-11', '1975-01-12', 'Wirausaha', 'Ibu Rumah Tangga', 'Jl. Keluarga tercemar', 3000000),
 (331205171166, 'Ginjal', 'Julaeha', '1968-01-01', '1978-08-08', 'Pegawai Negeri', 'Ibu Rumah Tangga', 'Jl. Keluarga Bahagia', 4500000);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Pendaftaran`
+--
+
+CREATE TABLE `Pendaftaran` (
+  `NO_PENDAFTARAN` int(11) NOT NULL,
+  `MAHASISWA` char(50) NOT NULL,
+  `TANGGAL_DAFTAR` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Pendaftaran`
+--
+
+INSERT INTO `Pendaftaran` (`NO_PENDAFTARAN`, `MAHASISWA`, `TANGGAL_DAFTAR`) VALUES
+(512345, 'KANG', '2020-09-08'),
+(512346, 'KUNG', '2020-09-09'),
+(512347, 'KING', '2020-09-10'),
+(512348, 'KONG', '2020-09-07'),
+(512349, 'KENG', '2020-09-11');
+
 --
 -- Indexes for dumped tables
 --
@@ -92,10 +138,32 @@ ALTER TABLE `calon_peserta_didik`
   ADD PRIMARY KEY (`No_KK`);
 
 --
+-- Indexes for table `LAMPIRAN`
+--
+ALTER TABLE `LAMPIRAN`
+  ADD PRIMARY KEY (`Kartu_keluarga`);
+
+--
 -- Indexes for table `orang_tua`
 --
 ALTER TABLE `orang_tua`
   ADD PRIMARY KEY (`no_kk`);
+
+--
+-- Indexes for table `Pendaftaran`
+--
+ALTER TABLE `Pendaftaran`
+  ADD PRIMARY KEY (`NO_PENDAFTARAN`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Pendaftaran`
+--
+ALTER TABLE `Pendaftaran`
+  MODIFY `NO_PENDAFTARAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=512351;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
